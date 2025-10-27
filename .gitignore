@@ -1,0 +1,60 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Migration files
+migrations/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+debug.log
+error.log
+
+# Build and output directories
+dist/
+build/
+out/
+tmp/
+temp/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage reports
+coverage/
+*.lcov
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: lock files (if using a specific package manager, you can remove others)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# TypeScript build files
+*.tsbuildinfo
+
+# Docker
+docker-compose.override.yml
