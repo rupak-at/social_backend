@@ -1,6 +1,6 @@
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-import knex from "../db/sql.js";
+import sql from "../sql.js";
 
 passport.use(
   new GoogleStrategy(
@@ -11,10 +11,10 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        let user = await knex("users").where({ provider_id: profile.id }).first();
+        let user = await sql("users").where({ provider_id: profile.id }).first();
 
         if (!user) {
-          const [new_user] = await knex("users")
+          const [new_user] = await sql("users")
             .insert({
               full_name: profile.displayName,
               email: profile.emails[0].value,
@@ -26,7 +26,7 @@ passport.use(
           user = new_user;
         }
 
-        await knex("social_accounts")
+        await sql("social_accounts")
           .insert({
             user_id: user.id,
             platform: "google",
