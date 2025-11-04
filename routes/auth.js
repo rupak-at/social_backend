@@ -6,6 +6,8 @@ import {
   googleCallBack,
   verifyGoogleToken,
   logout,
+  twitterLogin,
+  twitterCallBack,
 } from "../controller/auth.js";
 import verifyToken from "../middleware/verifyToken.js";
 
@@ -25,5 +27,9 @@ router.get(
 router.post("/exchange", exchangeToken);
 router.post("/google/verify", verifyGoogleToken);
 router.get("/logout", verifyToken, logout);
+
+// twitter routes
+router.get("/twitter/login", verifyToken, twitterLogin);
+router.get("/twitter/callback", twitterCallBack);
 
 export default router;
